@@ -1,0 +1,51 @@
+.cardhead {
+    border: none;
+    border-radius: 1rem;
+    transition: all 0.2s;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+  }
+  h6{
+    padding-bottom: 20px;
+    border-bottom: 0.2px solid rgb(184, 182, 182);
+  }
+  .but .btn{
+    width:75%;
+    border-radius: 20px;
+  }
+  li{
+    padding: 5px 0px;
+  }
+  .text-muted{
+    opacity: 60%;
+  }
+  
+  .card1{
+  letter-spacing: 2px;
+  font-size: large;
+  font-weight: bold;
+  }
+  
+  .card2{
+    font-size: 3rem;
+   
+  }
+  
+  .card2 .per{
+    font-size: 0.8rem;
+  }
+  
+  ul{
+    list-style: none;
+  }
+  
+  @media (min-width: 992px) {
+    .cardhead:hover {
+      margin-top: -.25rem;
+      margin-bottom: .25rem;
+      box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+    }
+  
+    .cardhead:hover .btn {
+      opacity: 1;
+    }
+  }

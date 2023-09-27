@@ -4,10 +4,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux"
 
 function Navbar1() {
+
+  const loginReducer = useSelector(state => state.loginReducer);
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-tertiary mb-5" Navbar bg="primary" data-bs-theme="dark">
     <Container>
       <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -23,7 +26,7 @@ function Navbar1() {
             <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
           </NavDropdown>
         </Nav>
-        <Link to="/login"><Button variant="primary" className="ml-auto">Login</Button></Link>
+        {!loginReducer.isLoggedIn && <Link to="/login"><Button variant="primary" className="ml-auto">Login</Button></Link>}
       </Navbar.Collapse>
     </Container>
   </Navbar>

@@ -22,8 +22,8 @@ function RegistrationForm() {
     const apicall = async () => {
         try {
             await axios.post(`${Url}api/register`, formData);
-           
-            navigate("/");
+           alert("please check email to verify your account")
+            navigate("/login");
         } catch (error) {
             
             alert(error)

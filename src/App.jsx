@@ -8,6 +8,8 @@ import ResetPass from './Components/Password/resetpass'
 import PasswordVerify from './Components/Password/passwordverify'
 import ProtectRoute from './ProtectRoute'
 import ResetPasswordForm from './Components/Password/PassworForm'
+import LoginVerify from './Components/login_verify'
+import Shorten from './Components/short'
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
       <Route path="/resetPass" element={<ResetPass/>}/>
       <Route path="/verifyPass" element={<PasswordVerify/>}/>
       <Route path="/passwordForm" element={<ProtectRoute element={<ResetPasswordForm/>}/>}/>
+      <Route path="/userVerify" element={<LoginVerify/>}/>
+      <Route path="/short/:id" element={<Shorten/>}/>
      </Routes>
     </>
   )

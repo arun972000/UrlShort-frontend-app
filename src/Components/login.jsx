@@ -1,11 +1,15 @@
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux"
 import { Url } from "../Url.js";
 import axios from "axios";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
-
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -22,21 +26,54 @@ const Login = () => {
     const apilog = async () => {
         try {
             await axios.post(`${Url}api/login`, formData)
-            alert("Login success");
+            dispatch({ type: 'user_login', data: "" })
+
+            toast.success('login success', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+            navigate("/")
         } catch (err) {
-            alert("invalid password or email")
+            toast.error('invalid password or email!', {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
         }
 
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         apilog()
-
     };
     return (
         <section className="form my-4 mx-5">
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
+            {/* Same as */}
+            <ToastContainer />
             <div className="container mt-5 pt-5">
                 <div className="row">
 
