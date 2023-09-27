@@ -20,7 +20,16 @@ const UrlShortener = () => {
     try {
       const response = await axios.post(`${Url}api/UrlAdd`, { OriginalUrl });
       if (response.data && response.data.ShortenedUrl) {
-
+        toast.info('Url shortened', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          });
         setShortenedUrl(response.data.ShortenedUrl);
 
       } else {
